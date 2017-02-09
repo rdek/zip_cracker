@@ -3,6 +3,7 @@ import sys
 import os
 from threading import Thread
 
+# Command line error handling
 if len(sys.argv) < 3:
     sys.exit('Zip password cracker, usage: %s <zipped_file_to_crack> <dictionary_path>' % sys.argv[0])
 
@@ -26,10 +27,6 @@ def main():
         password = line.strip('\n')
         t = Thread(target=extractFile, args=(zFile, password))
         t.start()
-#        guess = extractFile(zFile, password)
-#        if guess:
-#            print '[+] Password = '+password+'\n'
-#            exit(0)
 
 if __name__ == '__main__':
     main()
